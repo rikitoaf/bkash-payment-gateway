@@ -1,19 +1,22 @@
 import React from 'react'
 import axios from 'axios'
 function Home() {
-  const pay = async() => {
+
+  
+  const pay = async () => {
+    
     try {
-      const {data} = await axios.post('http://localhost:5000/bkash/payment/create', {
-        amount: 50, orderId: 1}, {withCredentials: true})
+      const {data} = await axios.post('http://localhost:5000/api/bkash/payment/create', {
+         1 : 10, 2 : 20}, {withCredentials: true})
         console.log(data)
     }
-    catch {
+    catch (error){
       console.log(error.response.data)
     }
   }
   return (
     <div>
-      <button>Pay Bkash</button>
+      <button onClick={pay}>Pay Bkash</button>
     </div>
   )
 }
